@@ -528,6 +528,181 @@
       box-shadow: 0 0 0 2px var(--super-cyan-glow);
     }
 
+    /* ═══ BEDS V1.0 SPLIT-SCREEN LOGIN ══════════════════════════════ */
+    .login-split-card {
+      width: 100%;
+      max-width: 940px;
+      background: var(--beds-bg-panel, #ffffff);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 151, 178, 0.25);
+      border: 1px solid var(--super-border, #e2e8f0);
+      display: flex;
+      flex-direction: row;
+      min-height: 540px;
+      animation: superFadeIn 0.2s ease-out both;
+    }
+    .login-split-left {
+      flex: 0 0 50%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background-color: #102D35;
+      min-height: 540px;
+    }
+    .login-split-left img.login-cover {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .login-split-left .login-cover-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      background: linear-gradient(to top, rgba(16,45,53,0.96) 0%, rgba(16,45,53,0.6) 55%, rgba(16,45,53,0.0) 100%);
+      padding: 34px 28px 26px;
+      color: #fff;
+    }
+    .login-split-left .login-cover-label h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 4px 0;
+      line-height: 1.2;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .login-split-left .login-cover-label p {
+      font-size: 11px;
+      color: var(--beds-teal-primary, #0097b2);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin: 0;
+    }
+    .login-split-left .login-cover-label .login-motto {
+      font-size: 11px;
+      color: rgba(255,255,255,0.75);
+      font-style: italic;
+      margin-top: 6px;
+    }
+    .login-split-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 36px 42px;
+      background: var(--beds-bg-panel, #ffffff);
+      overflow-y: auto;
+    }
+    @media (max-width: 768px) {
+      .login-split-card { flex-direction: column; max-width: 95%; }
+      .login-split-left { min-height: 200px; flex: none; }
+      .login-split-right { padding: 24px 18px; }
+    }
+
+    /* ═══ USER PILL DROPDOWN ════════════════════════════════════════ */
+    .user-pill-wrap { position: relative; display: inline-block; }
+    .user-pill { cursor: pointer; user-select: none; }
+    .user-pill-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 220px;
+      background: var(--beds-bg-panel, #ffffff);
+      border: 1px solid var(--super-border, #e2e8f0);
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(16,45,53,0.18);
+      z-index: 500;
+      padding: 6px;
+      animation: dropdownSlide 0.15s ease-out;
+    }
+    .user-pill-wrap.open .user-pill-menu { display: block; }
+    .user-pill-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--beds-text-primary, #102d35);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .user-pill-menu-item:hover { background: rgba(0,151,178,0.08); }
+    .user-pill-menu-divider { height: 1px; background: var(--super-border, #e2e8f0); margin: 4px 0; }
+    .user-pill-menu-item.danger { color: #dc2626; }
+    .user-pill-menu-item.danger:hover { background: rgba(220,38,38,0.08); }
+
+    /* ═══ PORTAL SWITCHER DROPDOWN ══════════════════════════════════ */
+    .portal-switcher-wrap { position: relative; display: inline-block; }
+    .portal-switcher-btn {
+      background: var(--super-bg, #f8fafc);
+      border: 1px solid var(--super-border, #e2e8f0);
+      color: var(--beds-text-primary, #102d35);
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: inherit;
+    }
+    .portal-switcher-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 230px;
+      background: var(--beds-bg-panel, #ffffff);
+      border: 1px solid var(--super-border, #e2e8f0);
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(16,45,53,0.18);
+      z-index: 500;
+      padding: 6px;
+      animation: dropdownSlide 0.15s ease-out;
+    }
+    .portal-switcher-wrap.open .portal-switcher-menu { display: block; }
+    .portal-switcher-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--beds-text-primary, #102d35);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .portal-switcher-item:hover { background: rgba(0,151,178,0.08); }
+    .portal-switcher-item.current { background: rgba(0,151,178,0.12); border-left: 3px solid #0097b2; }
+
+    /* KPI Card & Table Standards */
+    .purch-kpi-card:hover, .card-panel:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(16,45,53,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
     /* FOOTER */
     footer.purch-footer {
       background: var(--beds-bg-panel);
@@ -553,16 +728,45 @@
       </div>
     </div>
     <div class="purch-controls">
+      <!-- Portal Switcher Dropdown -->
+      <div class="portal-switcher-wrap" id="portalSwitcherWrap">
+        <button class="portal-switcher-btn" type="button" onclick="document.getElementById('portalSwitcherWrap').classList.toggle('open')">
+          🚀 Portals <span style="font-size:10px;">▾</span>
+        </button>
+        <div class="portal-switcher-menu">
+          <a class="portal-switcher-item" href="../index.html">🏢 Enterprise Launcher</a>
+          <a class="portal-switcher-item" href="../BALSONS GATE ENTRY MANAGER/frontend/index.html">🚪 Gate Entry Manager</a>
+          <a class="portal-switcher-item" href="../BALSONS HR MANAGER/frontend/index.html">👥 HR &amp; Payroll Manager</a>
+          <a class="portal-switcher-item" href="../BALSONS OPERATIONS MANAGER/index.html">🏗️ Operations Manager</a>
+          <a class="portal-switcher-item current" href="index.html">🛒 Purchase Manager</a>
+          <a class="portal-switcher-item" href="../BALSONS SAFETY MANAGER/frontend/index.html">🦺 Safety Manager</a>
+          <a class="portal-switcher-item" href="../BALSONS STORE MANAGER/frontend/index.html">📦 Store Manager</a>
+        </div>
+      </div>
+
       <span class="badge-pill" id="syncStatusBadge">
         <span class="badge-live-dot"></span> Cloud DB Synced
       </span>
-      <button class="badge-pill" id="activeUserBadge" onclick="BalsonsPurchaseApp.openLoginModal()">
-        👤 User: admin.purchase (4001)
-      </button>
+
+      <!-- User Pill Wrap with Dropdown -->
+      <div class="user-pill-wrap" id="userPillWrap">
+        <button class="badge-pill user-pill" id="activeUserBadge" onclick="document.getElementById('userPillWrap').classList.toggle('open')">
+          👤 User: admin.purchase (4001) <span style="font-size:10px; margin-left:2px;">▾</span>
+        </button>
+        <div class="user-pill-menu">
+          <div class="user-pill-menu-item">👤 <span id="menuUserFullName">Gagan Bihari Das (Buyer)</span></div>
+          <div class="user-pill-menu-divider"></div>
+          <a class="user-pill-menu-item" href="../index.html">🏢 Switch Portal</a>
+          <div class="user-pill-menu-item" onclick="BalsonsPurchaseApp.openLoginModal()">🔄 Switch Role</div>
+          <div class="user-pill-menu-divider"></div>
+          <a class="user-pill-menu-item" href="../index.html">🚪 Return to Launcher</a>
+        </div>
+      </div>
+
       <button class="badge-pill" id="themeBtn" onclick="toggleTheme()" title="Toggle Theme">
         🌙 Dark
       </button>
-      <a href="../mobile/index.html" class="badge-pill" style="background: rgba(0, 151, 167, 0.1); border-color: #0097a7; color: #0097a7; font-weight: 800;">
+      <a href="../mobile/purchase.html" class="badge-pill" style="background: rgba(2, 132, 199, 0.12); border-color: #0284c7; color: #0284c7; font-weight: 800; text-decoration: none;" title="Switch to Mobile & Tablet Optimized View">
         📱 Mobile View
       </a>
       <a href="../index.html" class="badge-pill">
@@ -1059,33 +1263,68 @@
     </div>
   </div>
 
-  <!-- MODAL 5: ROLE LOGIN SWITCHER -->
+  <!-- MODAL 5: ROLE LOGIN SWITCHER (Full-Height Split Screen) -->
   <div id="modal-login" class="purch-modal-overlay">
-    <div class="purch-modal-card" style="max-width: 440px;">
-      <div class="purch-modal-head">
-        <h4>🔐 Select Authorized Officer Session</h4>
-        <button class="purch-modal-close" onclick="BalsonsPurchaseApp.closeLoginModal()">✕</button>
+    <div class="login-split-card" style="max-width: 940px;">
+      <!-- Left: Cover image fitted to full side -->
+      <div class="login-split-left">
+        <img class="login-cover" src="assets/images/login-store.jpg" onerror="this.onerror=null;this.src='../assets/images/login-store.jpg'" alt="Purchase Manager">
+        <div class="login-cover-overlay">
+          <div class="login-cover-label">
+            <h2>Purchase &amp; Procurement</h2>
+            <p>JTRWF Khordha · Commercial Sourcing &amp; PO Control</p>
+            <div class="login-motto">“Difficult We Do Easily, Impossible Takes Little Time...!”</div>
+          </div>
+        </div>
       </div>
-      <div class="purch-modal-body">
+      <!-- Right: Login form -->
+      <div class="login-split-right">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="assets/images/balsons-logo.png" onerror="this.onerror=null; this.src='../assets/images/balsons-logo.png'" alt="BALSONS Logo" style="height: 38px; width: auto; object-fit: contain;">
+            <div>
+              <h3 style="margin: 0; font-size: 15px; font-weight: 800; color: var(--beds-charcoal-heading, #102d35);">BALSONS Purchase</h3>
+              <div style="font-size: 10.5px; color: var(--beds-teal-primary, #0097b2); font-weight: 700; text-transform: uppercase;">PRJ-JTRWF-SCHULER</div>
+            </div>
+          </div>
+          <button class="purch-modal-close" onclick="BalsonsPurchaseApp.closeLoginModal()">✕</button>
+        </div>
+
+        <div style="background: rgba(0, 151, 178, 0.08); padding: 8px 14px; border-radius: 6px; font-size: 11px; color: var(--beds-teal-primary, #0097b2); font-weight: 700; margin-bottom: 16px;">
+          🔐 Select Authorized Procurement Session
+        </div>
+
         <div style="display:flex; flex-direction:column; gap:8px;">
+          <button class="btn-act-secondary" style="justify-content:flex-start; padding:10px 14px;" onclick="BalsonsPurchaseApp.switchUserSession('admin.purch')">
+            🛒 <strong>Rohan Sharma</strong> (Purchase Lead &amp; Commercial Head - 3001)
+          </button>
+          <button class="btn-act-secondary" style="justify-content:flex-start; padding:10px 14px;" onclick="BalsonsPurchaseApp.switchUserSession('indenter.ops')">
+            📝 <strong>Suresh Verma</strong> (Indenter &amp; Erection Engineer - 3002)
+          </button>
           <button class="btn-act-secondary" style="justify-content:flex-start; padding:10px 14px;" onclick="BalsonsPurchaseApp.switchUserSession('superadmin')">
-            👑 <strong>Prashant Muley</strong> (Super Administrator)
+            👑 <strong>Prashant Muley</strong> (Executive Super Administrator - 2026)
           </button>
           <button class="btn-act-secondary" style="justify-content:flex-start; padding:10px 14px;" onclick="BalsonsPurchaseApp.switchUserSession('director.mgmt')">
-            🏛️ <strong>Satish Chandra</strong> (Project Director / DoA Approver)
+            🏛️ <strong>Satish Chandra</strong> (Project Director / DoA Approver - 1001)
           </button>
           <button class="btn-act-secondary" style="justify-content:flex-start; padding:10px 14px;" onclick="BalsonsPurchaseApp.switchUserSession('admin.purchase')">
-            📑 <strong>Gagan Bihari Das</strong> (Procurement Lead / Buyer)
+            📦 <strong>Gagan Bihari Das</strong> (Store &amp; Inventory Liaison - 4001)
           </button>
           <button class="btn-act-secondary" style="justify-content:flex-start; padding:10px 14px;" onclick="BalsonsPurchaseApp.switchUserSession('dilip.rout')">
-            🏗️ <strong>Dilip Rout</strong> (Operations Area Manager - Indenter)
+            🏗️ <strong>Dilip Rout</strong> (Operations Area Manager - Indenter - 1002)
           </button>
           <button class="btn-act-secondary" style="justify-content:flex-start; padding:10px 14px;" onclick="BalsonsPurchaseApp.switchUserSession('sarat.mishra')">
-            ⚙️ <strong>Sarat Mishra</strong> (Machine Shop Area Manager)
+            ⚙️ <strong>Sarat Mishra</strong> (Machine Shop Area Manager - 1003)
           </button>
           <button class="btn-act-secondary" style="justify-content:flex-start; padding:10px 14px;" onclick="BalsonsPurchaseApp.switchUserSession('client.jtrwf')">
-            🔍 <strong>Client Auditor</strong> (JTRWF / Schuler Read-Only)
+            🔍 <strong>Client Auditor</strong> (JTRWF / Schuler Read-Only - 9001)
           </button>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--super-border, #e2e8f0);">
+          <a href="../index.html" style="font-size: 11px; color: var(--beds-teal-primary, #0097b2); text-decoration: none; font-weight: 600;">
+            ← Return to Central Enterprise Workspace
+          </a>
         </div>
       </div>
     </div>
@@ -1103,5 +1342,18 @@
   </footer>
 
   <script src="assets/js/purchase-app.js"></script>
+  <script>
+    // Header Dropdowns Outside-Click Handler
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('#portalSwitcherWrap')) {
+        var w = document.getElementById('portalSwitcherWrap');
+        if (w) w.classList.remove('open');
+      }
+      if (!e.target.closest('#userPillWrap')) {
+        var u = document.getElementById('userPillWrap');
+        if (u) u.classList.remove('open');
+      }
+    });
+  </script>
 </body>
 </html>

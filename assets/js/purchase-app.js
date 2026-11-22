@@ -720,13 +720,15 @@ const BalsonsPurchaseApp = {
     const userMap = {
       'superadmin': { username: 'superadmin', name: 'Prashant Muley', role: 'Super Administrator', pin: '2026' },
       'director.mgmt': { username: 'director.mgmt', name: 'Satish Chandra', role: 'Project Director', pin: '1001' },
+      'admin.purch': { username: 'admin.purch', name: 'Rohan Sharma', role: 'Purchase Lead & Commercial Head', pin: '3001' },
+      'indenter.ops': { username: 'indenter.ops', name: 'Suresh Verma', role: 'Indenter & Erection Engineer', pin: '3002' },
       'admin.purchase': { username: 'admin.purchase', name: 'Gagan Bihari Das', role: 'Procurement Lead', pin: '4001' },
       'dilip.rout': { username: 'dilip.rout', name: 'Dilip Rout', role: 'Operations Area Manager', pin: '1002' },
       'sarat.mishra': { username: 'sarat.mishra', name: 'Sarat Mishra', role: 'Machine Shop Area Manager', pin: '1003' },
       'client.jtrwf': { username: 'client.jtrwf', name: 'Client Inspection Auditor', role: 'Client Observer', pin: '9001' }
     };
 
-    const target = userMap[username] || userMap['admin.purchase'];
+    const target = userMap[username] || userMap['admin.purch'] || userMap['admin.purchase'];
     this.currentUser = target;
     localStorage.setItem('balsons_purchase_user', JSON.stringify(target));
     localStorage.setItem('balsons_global_auth_session', JSON.stringify({
